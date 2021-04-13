@@ -6,6 +6,7 @@ import {
   IconButton,
   makeStyles,
   Typography,
+  Button,
 } from '@material-ui/core';
 
 import Menu from '@material-ui/icons/Menu';
@@ -17,7 +18,11 @@ const useStyles = makeStyles({
     boxShadow: '0px 0px 0px 0px',
   },
   iconMenu: {
-    display: 'none',
+    marginLeft: -18,
+    marginRight: 10,
+  },
+  flex: {
+    flexGrow: 2,
   },
 });
 
@@ -34,7 +39,16 @@ const TopBar = () => {
           >
             <Menu />
           </IconButton>
-          <Typography variant="h6"> Ekommerce </Typography>
+          <Typography variant="h6" className={classes.flex}>
+            Ekommerce
+          </Typography>
+
+          <Button color="inherit">
+            Login
+          </Button>
+          <Button color="inherit">
+            Sign in
+          </Button>
         </Toolbar>
       </AppBar>
     </>
