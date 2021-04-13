@@ -1,9 +1,9 @@
-import React from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
-import { routes } from "./helper";
-import Layout from "../layout";
+import React from 'react';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import { routes } from './helper';
+import Layout from '../shared/components/layout/';
 
-const Routes = () => {
+export const Routes = () => {
   const routesRender = routes;
 
   return (
@@ -13,10 +13,10 @@ const Routes = () => {
           {item.path === '/login' || item.path === '/register' ? (
             <item.page />
           ) : (
-              <Layout>
-                <item.page />
-              </Layout>
-            )}
+            <Layout>
+              <item.page />
+            </Layout>
+          )}
         </Route>
       ))}
       <Route path="*">
@@ -26,4 +26,3 @@ const Routes = () => {
   );
 };
 
-export default Routes;
