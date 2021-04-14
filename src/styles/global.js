@@ -23,7 +23,7 @@ export default createGlobalStyle`
     :root{
         --primary-font: #31393C;
         --secondary-font: #FFFFFF;
-        --primary-bg: #f1f1f1;
+        --primary-bg: #3675D3;
         --menu-bg: #131921;
     }
 `;
