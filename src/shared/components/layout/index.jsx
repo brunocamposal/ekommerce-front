@@ -1,13 +1,11 @@
-import React from 'react';
-
-import Menu from '../menu';
+import Navbar from '../menu/navbar/Navbar';
 
 import { Container, Content } from './styles';
 
 const Layout = ({ children }) => {
   return (
     <Container>
-      <Menu />
+      <Navbar />
       <Content>{children}</Content>
     </Container>
   );
