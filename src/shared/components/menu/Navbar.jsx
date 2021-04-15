@@ -3,7 +3,6 @@ import { useHistory } from 'react-router-dom';
 
 import {
   AppBar,
-  makeStyles,
   Toolbar,
   Typography,
   useMediaQuery,
@@ -16,39 +15,9 @@ import {
 } from '@material-ui/core';
 
 import { AccountCircle, ShoppingCart, Search } from '@material-ui/icons';
-import DrawerComponent from '../drawer/Drawer';
+import DrawerComponent from './Drawer';
 
-const useStyles = makeStyles((theme) => ({
-  appBar: {
-    backgroundColor: 'var(--primary-bg)',
-    color: 'white',
-    boxShadow: '0px 0px 0px 0px',
-  },
-  logo: {
-    [theme.breakpoints.down('md')]: {
-      display: 'none',
-    },
-  },
-  menu: {
-    [theme.breakpoints.down('md')]: {
-      display: 'none',
-    },
-  },
-  searchField: {
-    margin: 'auto',
-  },
-  input: {
-    marginLeft: theme.spacing(1),
-    flex: 1,
-    width: '350px',
-    [theme.breakpoints.down('md')]: {
-      width: '150px',
-    },
-  },
-  iconButton: {
-    padding: 10,
-  },
-}));
+import { useStyles } from './styles';
 
 const Navbar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -57,7 +26,7 @@ const Navbar = () => {
   const classes = useStyles();
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down('sm'));
-
+    
   const handleMenu = (e) => {
     setAnchorEl(e.currentTarget);
   };

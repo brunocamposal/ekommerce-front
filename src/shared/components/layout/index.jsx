@@ -1,4 +1,4 @@
-import Navbar from '../menu/navbar/Navbar';
+import Navbar from '../menu/Navbar';
 
 import { Container, Content } from './styles';
 

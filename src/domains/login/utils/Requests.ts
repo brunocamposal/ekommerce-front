@@ -6,7 +6,7 @@ export const login = async (data: LoginFields) => {
    * @todo change username to email
    */
 
-  const result = await axiosInstance.post('/api/login', {
+  const result = await axiosInstance.post('/api/login/', {
     username: data?.email,
     password: data?.password,
   });
