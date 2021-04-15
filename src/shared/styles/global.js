@@ -24,6 +24,7 @@ export default createGlobalStyle`
         --primary-font: #31393C;
         --secondary-font: #FFFFFF;
         --primary-bg: #3675D3;
+        --secondary-bg:#0C3F8B;
         --menu-bg: #131921;
     }
 `;

@@ -1,17 +1,15 @@
 import { axiosInstance } from '../../../shared/utils/AxiosDefault';
-import { LoginFields } from './Interfaces';
+import { RegisterFields } from './Interfaces';
 
-export const login = async (data: LoginFields) => {
+export const registerUser = async (data: RegisterFields) => {
   /**
    * @todo change username to email
    */
   try {
-    const result = await axiosInstance.post('/api/login/', {
+    await axiosInstance.post('/api/signup/', {
       username: data?.email,
       password: data?.password,
     });
-
-    localStorage.setItem('token', result.data?.token);
   } catch (err) {
     console.error(err);
   }

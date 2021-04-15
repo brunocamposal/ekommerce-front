@@ -2,7 +2,6 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import { routes } from './helper';
 import Layout from '../shared/components/layout/';
 
-
 export const Routes = () => {
   const routesRender = routes;
 
@@ -11,7 +10,9 @@ export const Routes = () => {
       {routesRender.map((item, index) => (
         <Route key={index} exact path={item.path}>
           {item.path === '/login' || item.path === '/register' ? (
-            <item.page />
+            <Layout>
+              <item.page />
+            </Layout>
           ) : (
             <Layout>
               <item.page />
@@ -25,4 +26,3 @@ export const Routes = () => {
     </Switch>
   );
 };
-
