@@ -23,6 +23,7 @@ export const FormStyled = styled.form`
   .form-footter-text {
     margin-top: 0.625rem;
     font-weight: 400;
+    margin-bottom: 25px;
   }
 
   .form-link {
@@ -36,7 +37,15 @@ export const FormStyled = styled.form`
   }
 
   @media (max-width: 900px) {
-    width: 90%;
+    width: 40%;
+  }
+
+  @media (max-width: 750px) {
+    width: 60%;
+  }
+
+  @media (max-width: 500px) {
+    width: 85%;
   }
 `;
 
@@ -63,18 +72,21 @@ export const FormContainerStyled = styled.div`
     width: 65%;
   }
   @media (max-width: 1150px) {
-    width: 70%;
+    width: 75%;
   }
   @media (max-width: 1000px) {
     width: 85%;
   }
   @media (max-width: 900px) {
     width: 90%;
-    height: 80%;
-    flex-direction: column;
+    height: 90%;
 
     .form-container-image {
       height: 40%;
     }
+  }
+  @media (max-width: 750px) {
+    width: 85%;
+    flex-direction: column;
   }
 `;
