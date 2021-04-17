@@ -1,4 +1,3 @@
-import React from 'react';
 import GlobalStyles from './shared/styles/global';
 
 import { Routes } from './routes';

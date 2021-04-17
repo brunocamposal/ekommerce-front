@@ -32,12 +32,13 @@ export const RegisterPage = () => {
   });
 
   const onSubmit = async (data: RegisterFields) => {
+    console.log(data)
     try {
       await registerUser(data);
-      history.push('/');
     } catch (err) {
       console.error(err);
     }
+    history.push('/');
   };
 
   return (
@@ -95,7 +96,7 @@ export const RegisterPage = () => {
               error={errors.passwordConfirmation}
               size="small"
               className="form-text-field"
-              label="Nome"
+              label="Repetir senha"
               placeholder="Digite sua senha novamente"
               variant="outlined"
               {...register('passwordConfirmation')}

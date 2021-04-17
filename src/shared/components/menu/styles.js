@@ -1,6 +1,9 @@
 import { makeStyles } from '@material-ui/core';
 
 export const useStyles = makeStyles((theme) => ({
+  flex: {
+    display: 'flex',
+  },
   menuIconToggle: {
     fontSize: '2rem',
     color: 'white',
@@ -24,6 +27,7 @@ export const useStyles = makeStyles((theme) => ({
     boxShadow: '0px 0px 0px 0px',
   },
   logo: {
+    cursor: 'pointer',
     [theme.breakpoints.down('md')]: {
       display: 'none',
     },
@@ -46,5 +50,9 @@ export const useStyles = makeStyles((theme) => ({
   },
   iconButton: {
     padding: 10,
+  },
+  cart: {
+    padding: 4,
+    width: '300px',
   },
 }));

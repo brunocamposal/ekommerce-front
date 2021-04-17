@@ -14,19 +14,21 @@ import {
   Paper,
 } from '@material-ui/core';
 
-import { AccountCircle, ShoppingCart, Search } from '@material-ui/icons';
+import { AccountCircle, Search } from '@material-ui/icons';
 import DrawerComponent from './Drawer';
+import Cart from './Cart';
 
 import { useStyles } from './styles';
 
 const Navbar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
+
   const history = useHistory();
 
   const classes = useStyles();
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down('sm'));
-    
+
   const handleMenu = (e) => {
     setAnchorEl(e.currentTarget);
   };
@@ -36,7 +38,12 @@ const Navbar = () => {
       <AppBar elevation={0} className={classes.appBar}>
         <Toolbar>
           <Typography>
-            <div className={classes.logo}>
+            <div
+              className={classes.logo}
+              onClick={() => {
+                history.push('/');
+              }}
+            >
               <h2> Ekommerce </h2>
             </div>
           </Typography>
@@ -67,7 +74,7 @@ const Navbar = () => {
             >
               <AccountCircle />
             </IconButton>
-            {/* logado */}
+
             <Menu
               id="menu-appbar"
               anchorEl={anchorEl}
@@ -99,10 +106,7 @@ const Navbar = () => {
                 Registrar-se
               </MenuItem>
             </Menu>
-
-            <IconButton color="inherit">
-              <ShoppingCart />
-            </IconButton>
+            <Cart />
           </>
         </Toolbar>
       </AppBar>

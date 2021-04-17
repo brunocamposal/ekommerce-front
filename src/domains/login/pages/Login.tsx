@@ -72,8 +72,8 @@ export const LoginPage = () => {
             Entrar
           </Button>
           <p className="form-footter-text">
-            Não tem cadastro?{' '}
-            <Link to="/login" className="form-link">
+            Não tem cadastro?
+            <Link to="/register" className="form-link">
               Crie sua conta aqui
             </Link>
           </p>
