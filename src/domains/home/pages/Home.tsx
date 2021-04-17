@@ -1,8 +1,9 @@
 export const HomePage = () => {
-    return (
-      <>
-        <h2>Home Page!!!</h2>
-      </>
-    );
-  };
-  
+  return (
+    <>
+      <div>
+        <h2> Home PAGEEEEE!!!</h2>
+      </div>
+    </>
+  );
+};

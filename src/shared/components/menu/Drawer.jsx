@@ -7,33 +7,12 @@ import {
   ListItemIcon,
   IconButton,
   ListItemText,
-  makeStyles,
   Drawer,
 } from '@material-ui/core';
 import { Menu } from '@material-ui/icons';
+import { useStyles } from './styles';
 
 const DrawerComponent = () => {
-  const useStyles = makeStyles((theme) => ({
-    menuIconToggle: {
-      fontSize: '2rem',
-      color: 'white',
-    },
-    list: {
-      width: 250,
-      backgroundColor: 'var(--primary-bg)',
-      height: '100vh',
-    },
-
-    listItem: {
-      color: 'white',
-      paddingLeft: '25px',
-    },
-    listUserInfo: {
-      color: 'white',
-      padding: '15px',
-    },
-  }));
-
   const [openDrawer, setOpenDrawer] = useState(false);
   const classes = useStyles();
   const history = useHistory();
