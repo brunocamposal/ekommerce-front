@@ -103,6 +103,7 @@ export const Container = styled.div`
       span {
         padding: 4px;
         font-weight: normal;
+      }
     }
   }
 `
