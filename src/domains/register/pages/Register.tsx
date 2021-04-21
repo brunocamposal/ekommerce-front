@@ -35,10 +35,11 @@ export const RegisterPage = () => {
     console.log(data)
     try {
       await registerUser(data);
+      history.push('/');
     } catch (err) {
       console.error(err);
     }
-    history.push('/');
+    
   };
 
   return (
@@ -96,7 +97,7 @@ export const RegisterPage = () => {
               error={errors.passwordConfirmation}
               size="small"
               className="form-text-field"
-              label="Repetir senha"
+              label="Confirmar senha"
               placeholder="Digite sua senha novamente"
               variant="outlined"
               {...register('passwordConfirmation')}

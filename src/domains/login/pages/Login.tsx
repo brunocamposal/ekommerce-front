@@ -27,10 +27,10 @@ export const LoginPage = () => {
   const onSubmit = async (data: LoginFields) => {
     try {
       await login(data);
-      history.push('/');
     } catch (err) {
       console.error(err)
     }
+    history.push('/');
   };
 
   return (

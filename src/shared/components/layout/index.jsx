@@ -1,6 +1,6 @@
 import Navbar from '../menu/Navbar';
 
-import { Container, Content } from './styles';
+import { Container, Content } from './styled';
 
 const Layout = ({ children }) => {
   return (

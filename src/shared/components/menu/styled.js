@@ -17,7 +17,12 @@ export const ProductQuantity = styled.p`
   margin-right: 10px;
 `;
 
-export const ProductButton = styled(Button)`
+export const RemoveButton = styled(Button)`
   width: 75px;
   height: 25px;
+`;
+
+export const FinishedButton = styled(Button)`
+  width: 100%;
+  height: 35px;
 `;
