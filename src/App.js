@@ -1,13 +1,14 @@
 import GlobalStyles from './shared/styles/global';
 
 import { Routes } from './routes';
-// import MyOrders from './domains/my-orders/pages/MyOrders'
+import SimpleModal from './domains/my-orders/components/modalOrder/ModalOrder'
 
 const App = () => {
   return (
     <>
       <GlobalStyles />
-      <Routes />
+      {/* <Routes /> */}
+      <SimpleModal />
     </>
   );
 };

@@ -1,4 +1,4 @@
-import { CardOrder } from '../components/CardOrder'
+import { CardOrder } from '../components/cardOrder/CardOrder'
 import { PageContainer } from './styled'
 
 export const MyOrdersPage = () => {
