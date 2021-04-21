@@ -44,6 +44,7 @@ export const RegisterPage = () => {
 
 
     }
+
   };
 
   return (
@@ -101,7 +102,7 @@ export const RegisterPage = () => {
               error={errors.passwordConfirmation}
               size="small"
               className="form-text-field"
-              label="Repetir senha"
+              label="Confirmar senha"
               placeholder="Digite sua senha novamente"
               variant="outlined"
               type="password"

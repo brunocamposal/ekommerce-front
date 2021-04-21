@@ -2,6 +2,7 @@ import { axiosInstance } from '../../../shared/utils/AxiosDefault';
 import { RegisterFields } from './Interfaces';
 
 export const registerUser = async (data: RegisterFields) => {
+
   await axiosInstance.post('/api/signup/', {
     first_name: data.name,
     username: data.email,
