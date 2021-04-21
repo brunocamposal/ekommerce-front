@@ -58,6 +58,10 @@ export const FormContainerStyled = styled.div`
   background-color: #fff;
   border-radius: 10px;
 
+  .form-error {
+    color: #bf3d3b;
+  }
+
   .form-container-image {
     margin: 0.625rem;
     width: 50%;

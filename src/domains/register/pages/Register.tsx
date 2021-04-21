@@ -1,9 +1,4 @@
-import {
-  TextField,
-  Button,
-  ThemeProvider,
- 
-} from '@material-ui/core';
+import { TextField, Button, ThemeProvider } from '@material-ui/core';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
@@ -19,8 +14,11 @@ import {
 } from '../../../shared/styles/FormStyled';
 import { schema } from '../utils/YupSchema';
 import { registerUser } from '../utils/Requests';
+import { useState } from 'react';
+import { AxiosError } from 'axios';
 
 export const RegisterPage = () => {
+  const [error, setError] = useState<string>('');
   const history = useHistory();
 
   const {
@@ -32,19 +30,26 @@ export const RegisterPage = () => {
   });
 
   const onSubmit = async (data: RegisterFields) => {
-    console.log(data)
+    setError('')
     try {
       await registerUser(data);
+      history.push('/');
     } catch (err) {
-      console.error(err);
+      const error = (err as AxiosError);
+      console.error('Failed on register user');
+      
+      if (error.response?.data?.username){
+        setError(error.response?.data?.username?.[0])
+      }
+
+
     }
-    history.push('/');
   };
 
   return (
     <PageStyled>
       <FormContainerStyled>
-      <img
+        <img
           src={AuthenticationImage}
           alt="authentication"
           className="form-container-image"
@@ -99,12 +104,14 @@ export const RegisterPage = () => {
               label="Repetir senha"
               placeholder="Digite sua senha novamente"
               variant="outlined"
+              type="password"
               {...register('passwordConfirmation')}
               helperText={
                 errors.passwordConfirmation && 'As senhas devem ser iguais'
               }
             ></TextField>
           </ThemeProvider>
+          <p className="form-error">{error}</p>
 
           <Button variant="contained" type="submit" className="form-button">
             Entrar
