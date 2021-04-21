@@ -7,7 +7,7 @@ export const tileData = [
   },
   {
     img: doces,
-    title: 'Doces',
+    title: 'Chocolates',
   },
   {
     img: frutas,

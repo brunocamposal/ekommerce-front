@@ -19,7 +19,7 @@ const MaterialCard = (props) => {
       <CardMedia
         component="img"
         className={classes.media}
-        height="140"
+        height="170"
         image="https://abimapi.com.br/images/galeria/24-06-2020_1_1ffec0832cfc5a99abc9207aabe36600.jpg"
         title="Contemplative Reptile"
       />
@@ -30,7 +30,7 @@ const MaterialCard = (props) => {
       </CardContent>
       <CardActions className={classes.actions}>
         <ProductPrice> R$ 13,50 </ProductPrice>
-        <AddShoppingCartIcon />
+        <AddShoppingCartIcon className={classes.cartIcon} />
       </CardActions>
     </Card>
   );

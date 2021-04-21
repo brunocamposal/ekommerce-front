@@ -49,8 +49,11 @@ export const useStyles = makeStyles((theme) => ({
   },
   gridProducts: {
     flexGrow: 1,
-    marginTop: '15px',
-    maxWidth: "600px",
-    backgroundColor: 'yellow',
+    marginTop: '25px',
+    maxWidth: '100vw',
+  },
+  gridColumn: {
+    display: "flex",
+    justifyContent: "center",
   },
 }));
