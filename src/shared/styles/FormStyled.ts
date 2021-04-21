@@ -51,12 +51,16 @@ export const FormStyled = styled.form`
 
 export const FormContainerStyled = styled.div`
   width: 50%;
-  height: 60%;
+  height: 70%;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #fff;
   border-radius: 10px;
+
+  .form-error {
+    color: #bf3d3b;
+  }
 
   .form-container-image {
     margin: 0.625rem;
