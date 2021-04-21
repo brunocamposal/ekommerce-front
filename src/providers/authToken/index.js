@@ -1,12 +1,12 @@
-import {createContext, useContext, useState} from 'react';
+import { createContext, useContext, useState } from 'react';
 
 const AuthTokenContext = createContext()
 
-export const TokenProvider = ({ children }) => {
-  const [token, setToken] = useState(localStorage.getItem("token") || false)
+export const AuthTokenProvider = ({ children }) => {
+  const [token, setToken] = useState(localStorage.getItem("token") || "")
 
   const clearToken = () => {
-    setToken(false)
+    setToken("")
     localStorage.clear()
   }
 
@@ -15,11 +15,11 @@ export const TokenProvider = ({ children }) => {
   }
 
   return (
-    <TokenContext.Provider value={{ token, getToken, clearToken }}>
+    <AuthTokenContext.Provider value={{ token, getToken, clearToken }}>
       {children}
-    </TokenContext.Provider>
+    </AuthTokenContext.Provider>
   )
 }
 
-export const useToken = () => useContext(TokenContext)
+export const useToken = () => useContext(AuthTokenContext)
 

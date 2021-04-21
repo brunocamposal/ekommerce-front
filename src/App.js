@@ -7,8 +7,7 @@ const App = () => {
   return (
     <>
       <GlobalStyles />
-      {/* <Routes /> */}
-      <CardOrder />
+      <Routes />
     </>
   );
 };
