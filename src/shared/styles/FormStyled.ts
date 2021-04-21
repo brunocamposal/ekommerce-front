@@ -51,7 +51,7 @@ export const FormStyled = styled.form`
 
 export const FormContainerStyled = styled.div`
   width: 50%;
-  height: 60%;
+  height: 70%;
   display: flex;
   justify-content: center;
   align-items: center;
