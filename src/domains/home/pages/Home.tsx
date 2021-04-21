@@ -1,5 +1,5 @@
 // import { useProducts } from "../../../providers/products"
-// import { useEffect } from "react"
+// // import { useEffect } from "react"
 
 export const HomePage = () => {
   // const { products } = useProducts()
