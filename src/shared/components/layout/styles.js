@@ -14,5 +14,5 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   display: flex;
-  flex-grow:3;
+  flex-grow: 3;
 `;
