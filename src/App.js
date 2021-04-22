@@ -7,8 +7,8 @@ const App = () => {
   return (
     <>
       <GlobalStyles />
-      {/* <Routes /> */}
-      <SimpleModal />
+      <Routes />
+      {/* <SimpleModal /> */}
     </>
   );
 };

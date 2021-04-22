@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     position: 'absolute',
     width: 400,
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: '#F9F9F9',
     outline: 'none',
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
@@ -48,6 +48,12 @@ const ModalOrder = () => {
     <div style={modalStyle} className={classes.paper}>
 
       <ItemsContainer>
+        <div style={{ paddingBottom: '20px' }}>
+          <span>Id</span>
+          <span>Produto</span>
+          <span></span>
+          <span>Preço</span>
+        </div>
         {order.product_list.map((item) => (
           <div>
             <span>{item.id}</span>
@@ -56,6 +62,9 @@ const ModalOrder = () => {
             <span>R$ {item.price}</span>
           </div>
         ))}
+        <div>
+          <button onClick={handleClose}>OK</button>
+        </div>
       </ItemsContainer>
 
     </div>
@@ -64,7 +73,7 @@ const ModalOrder = () => {
   return (
     <div>
       <button type="button" onClick={handleOpen}>
-        View products
+        Ver pedido
       </button>
       <Modal
         open={open}

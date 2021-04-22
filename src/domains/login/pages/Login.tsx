@@ -12,8 +12,10 @@ import {
   FormContainerStyled,
   FormStyled,
 } from '../../../shared/styles/FormStyled';
+import { useState } from 'react';
 
 export const LoginPage = () => {
+  const [error, setError] = useState<string>('');
   const history = useHistory();
 
   const {
@@ -25,12 +27,14 @@ export const LoginPage = () => {
   });
 
   const onSubmit = async (data: LoginFields) => {
+    setError('')
     try {
       await login(data);
-      history.push('/');
     } catch (err) {
-      console.error(err)
+      console.error('Failed on login');
+      setError('Email ou senha inválidas, tente novamente.')
     }
+    history.push('/');
   };
 
   return (
@@ -68,6 +72,7 @@ export const LoginPage = () => {
               helperText={errors.password && 'O campo Senha é obrigatório'}
             />
           </ThemeProvider>
+          <p className="form-error">{error}</p>
           <Button variant="contained" type="submit" className="form-button">
             Entrar
           </Button>

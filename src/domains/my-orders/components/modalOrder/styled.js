@@ -5,7 +5,7 @@ export const ItemsContainer = styled.div`
   div {
     padding: 10px;
     margin: 1px;
-    border-bottom: 1px solid blue;
+    border-bottom: 1px solid #3675D3;
 
     display: flex;
     justify-content: space-around;
