@@ -4,6 +4,9 @@ export const useStyles = makeStyles((theme) => ({
   flex: {
     display: 'flex',
   },
+  margin: {
+    margin: theme.spacing.unit * 2,
+  },
   menuIconToggle: {
     fontSize: '2rem',
     color: 'white',
@@ -36,6 +39,9 @@ export const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('md')]: {
       display: 'none',
     },
+  },
+  menuCart: {
+    marginBottom: '10px',
   },
   searchField: {
     margin: 'auto',

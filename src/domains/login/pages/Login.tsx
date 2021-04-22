@@ -30,11 +30,11 @@ export const LoginPage = () => {
     setError('')
     try {
       await login(data);
-      history.push('/');
     } catch (err) {
       console.error('Failed on login');
       setError('Email ou senha inválidas, tente novamente.')
     }
+    history.push('/');
   };
 
   return (
