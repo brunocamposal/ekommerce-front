@@ -12,18 +12,6 @@ interface ProductModalProps {
   addToCart: () => void;
 }
 
-/**
- *
- * @param handleClose function that does the action of close modal,
- * @param open state of modal,
- * @param productTitle product title that was clicked,
- * @param productImagePath product image path of product image,
- * @param productDescription product description,
- * @param productPrice product price,
- * @param addToCart function that does the action of add item to cart
- *
- * @returns product modal with title image, description and price
- */
 export const ProductModal = ({
   handleClose,
   open,
