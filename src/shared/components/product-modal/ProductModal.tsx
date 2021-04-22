@@ -12,9 +12,8 @@ interface ProductModalProps {
   addToCart: () => void;
 }
 
-
 /**
- * 
+ *
  * @param handleClose function that does the action of close modal,
  * @param open state of modal,
  * @param productTitle product title that was clicked,
@@ -22,7 +21,7 @@ interface ProductModalProps {
  * @param productDescription product description,
  * @param productPrice product price,
  * @param addToCart function that does the action of add item to cart
- * 
+ *
  * @returns product modal with title image, description and price
  */
 export const ProductModal = ({
@@ -32,7 +31,7 @@ export const ProductModal = ({
   productImagePath,
   productDescription,
   productPrice,
-  
+
   addToCart,
 }: ProductModalProps) => {
   return (
@@ -46,13 +45,16 @@ export const ProductModal = ({
       <ProductModalStyled>
         <header className="product-modal-header">
           <span className="product-modal-title">{productTitle}</span>
-          <AiOutlineClose size="32" onClick={handleClose} className="product-modal-close"/>
+          <AiOutlineClose
+            size="32"
+            onClick={handleClose}
+            className="product-modal-close"
+          />
         </header>
         <img
           src={productImagePath}
           alt="product"
           className="product-modal-image"
-         
         />
 
         <main className="product-modal-main">
