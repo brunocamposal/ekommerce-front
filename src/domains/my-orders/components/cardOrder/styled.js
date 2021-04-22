@@ -70,11 +70,6 @@ export const Container = styled.div`
   .order-itens {
     padding-top: 15px;
     
-    a {
-      text-decoration:none;
-      font-weight: 600;
-      color: #3675D3;
-    }
   }
 
   .order-repeat {

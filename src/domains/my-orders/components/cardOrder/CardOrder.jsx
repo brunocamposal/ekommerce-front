@@ -1,14 +1,16 @@
 import { Link } from 'react-router-dom';
 import { Container } from './styled';
+import ModalOrder from '../modalOrder/ModalOrder'
 
-interface props {
-  id: number;
-  total_price: number;
-  status: string;
-  product_list: Array<number>
-}
+// interface props {
+//   id: number;
+//   total_price: number;
+//   status: string;
+//   product_list: Array<{}>;
+//   products: Array<[]>
+// }
 
-export const CardOrder = ({ id, total_price, status, product_list }: props) => {
+export const CardOrder = ({ id, total_price, status, product_list }) => {
   return (
     <Container>
       <div className="order order-id">
@@ -26,7 +28,7 @@ export const CardOrder = ({ id, total_price, status, product_list }: props) => {
         <p className="p-bold">R$ {total_price},00</p>
       </div>
       <div className="order order-itens">
-        <Link to="">Ver pedido</Link>
+        <ModalOrder products={product_list} />
       </div>
       <div className="order order-repeat">
         <Link to="">Pedir novamente</Link>
