@@ -27,4 +27,11 @@ export default createGlobalStyle`
         --secondary-bg:#0C3F8B;
         --menu-bg: #131921;
     }
+
+    .product-modal{
+        display:flex;
+        justify-content:center;
+        align-items: center;
+        background-color:#FFFFFF;
+    }
 `;
