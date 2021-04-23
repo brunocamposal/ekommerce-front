@@ -10,9 +10,18 @@ import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 
 import { ProductPrice } from './styled';
 import { useStyles } from './styles';
+import { useCart } from '../../../providers/cart';
 
-const MaterialCard = (props) => {
+const MaterialCard = ({ id, image, name, price }) => {
   const classes = useStyles();
+  const { setCart, cart } = useCart();
+
+  const productData = {
+    id,
+    name,
+    image,
+    price,
+  };
 
   return (
     <Card className={classes.card}>
@@ -20,17 +29,20 @@ const MaterialCard = (props) => {
         component="img"
         className={classes.media}
         height="170"
-        image="https://abimapi.com.br/images/galeria/24-06-2020_1_1ffec0832cfc5a99abc9207aabe36600.jpg"
-        title="Contemplative Reptile"
+        image={image}
+        title={name}
       />
       <CardContent>
         <Typography gutterBottom variant="headline" component="h3">
-          Tomato
+          {name}
         </Typography>
       </CardContent>
       <CardActions className={classes.actions}>
-        <ProductPrice> R$ 13,50 </ProductPrice>
-        <AddShoppingCartIcon className={classes.cartIcon} />
+        <ProductPrice> R$ {price} </ProductPrice>
+        <AddShoppingCartIcon
+          className={classes.cartIcon}
+          onClick={() => setCart([...cart, productData])}
+        />
       </CardActions>
     </Card>
   );

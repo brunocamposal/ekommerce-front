@@ -7,22 +7,22 @@ export const tileData = [
   },
   {
     img: doces,
-    title: 'Chocolates',
+    title: 'Doces',
   },
   {
     img: frutas,
-    title: 'Frutas',
+    title: 'Grãos',
   },
   {
     img: limpeza,
-    title: 'Produtos de limpeza',
+    title: 'Queijos',
   },
   {
     img: games,
-    title: 'Jogos',
+    title: 'Paẽs',
   },
   {
     img: eletrodomesticos,
-    title: 'Eletrodomésticos',
+    title: 'Massas',
   }
 ];

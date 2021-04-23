@@ -1,17 +1,20 @@
-import { AuthTokenProvider } from './authToken'
-import { OrdersProvider } from './orders'
-import { ProductsProvider } from './products'
+import { AuthTokenProvider } from './authToken';
+import { OrdersProvider } from './orders';
+import { ProductsProvider } from './products';
+import { CartProvider } from './cart';
 
 const Providers = ({ children }) => {
   return (
     <AuthTokenProvider>
       <ProductsProvider>
         <OrdersProvider>
-          {children}
+          <CartProvider>
+            {children}
+          </CartProvider>
         </OrdersProvider>
       </ProductsProvider>
     </AuthTokenProvider>
-  )
-}
+  );
+};
 
 export default Providers;

@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useCart } from '../../../providers/cart';
 
 import {
   MenuItem,
@@ -25,9 +25,7 @@ import { useStyles } from './styles';
 
 const Cart = () => {
   const [anchorCart, setAnchorCart] = useState(null);
-
-  const history = useHistory();
-
+  const { cart, deleteProduct } = useCart();
   const classes = useStyles();
 
   const handleCart = (e) => {
@@ -42,7 +40,7 @@ const Cart = () => {
         onClick={handleCart}
         color="inherit"
       >
-        <Badge badgeContent={1} color="primary">
+        <Badge badgeContent={cart.length} color="primary">
           <ShoppingCart />
         </Badge>
       </IconButton>
@@ -59,32 +57,31 @@ const Cart = () => {
             <Paper className={classes.cart}>
               <ClickAwayListener onClickAway={() => setAnchorCart(false)}>
                 <MenuList className={classes.menuCart}>
-                  <MenuItem>
-                    <ProductImage src="https://www.bambui.ifmg.edu.br/portal_padrao_joomla/joomla/images/phocagallery/galeria2/thumbs/phoca_thumb_l_image03_grd.png" />{' '}
-                    <p>
-                      Bolacha oreo
-                      <br />
-                      <div className={classes.flex}>
-                        <ProductPrice> R$ 13,50 </ProductPrice>
-                        <ProductQuantity> 1 qnt. </ProductQuantity>
-                        <RemoveButton
-                          size="small"
-                          variant="contained"
-                          disableRipple
-                          color="secondary"
-                        >
-                          remover
-                        </RemoveButton>
-                      </div>
-                    </p>
-                  </MenuItem>
+                  {cart.map(({ id, image, name, price }) => (
+                    <MenuItem>
+                      <ProductImage src={image} />
+                      <p>
+                        {name}
+                        <br />
+                        <div className={classes.flex}>
+                          <ProductPrice> R$ {price} </ProductPrice>
+                          <ProductQuantity> 1 qnt. </ProductQuantity>
+                          <RemoveButton
+                            size="small"
+                            variant="contained"
+                            disableRipple
+                            color="secondary"
+                            onClick={() => deleteProduct(id)}
+                          >
+                            remover
+                          </RemoveButton>
+                        </div>
+                      </p>
+                    </MenuItem>
+                  ))}
                 </MenuList>
               </ClickAwayListener>
-              <FinishedButton
-                variant="contained"
-                size="large"
-                color="primary"
-              >
+              <FinishedButton variant="contained" size="large" color="primary">
                 Finalizar compra
               </FinishedButton>
             </Paper>
