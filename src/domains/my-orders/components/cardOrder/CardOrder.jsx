@@ -1,16 +1,30 @@
-import { Link } from 'react-router-dom';
-import { Container } from './styled';
 import ModalOrder from '../modalOrder/ModalOrder'
+import { useToken } from '../../../../providers/authToken'
+import { axiosInstance } from '../../../../shared/utils/AxiosDefault'
 
-// interface props {
-//   id: number;
-//   total_price: number;
-//   status: string;
-//   product_list: Array<{}>;
-//   products: Array<[]>
-// }
+import { Container, Button } from './styled';
 
-export const CardOrder = ({ id, total_price, status, product_list }) => {
+const repeatOrder = (status, product_list, comments, client_id, token) => {
+  const repeat_prod_id = product_list.map(prod => prod.id)
+
+  const data = {
+    "product_list": repeat_prod_id,
+    "total_price": 0,
+    "description": comments,
+    "status": status,
+    "client_id": client_id
+  }
+
+  axiosInstance
+    .post('/api/orders/create_order/', data,
+      { headers: { Authorization: `Token ${token}` } })
+    .then((response) => console.log(response))
+
+}
+
+export const CardOrder = ({ id, total_price, status, product_list, comments, client_id }) => {
+  const { token } = useToken()
+
   return (
     <Container>
       <div className="order order-id">
@@ -31,7 +45,11 @@ export const CardOrder = ({ id, total_price, status, product_list }) => {
         <ModalOrder products={product_list} />
       </div>
       <div className="order order-repeat">
-        <Link to="">Pedir novamente</Link>
+        <Button
+          onClick={() => repeatOrder(status, product_list, comments, client_id, token)}
+        >
+          Pedir novamente
+          </Button>
       </div>
     </Container >
   )

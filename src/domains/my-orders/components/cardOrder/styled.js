@@ -74,12 +74,6 @@ export const Container = styled.div`
 
   .order-repeat {
     padding-top: 15px;
-    
-    a {
-      text-decoration:none;
-      font-weight: 600;
-      color: #3675D3; 
-    }
   }
 
   .p-bold {
@@ -102,3 +96,11 @@ export const Container = styled.div`
     }
   }
 `
+export const Button = styled.button`
+  outline: none;
+  border: none;
+  background: none;
+  font-weight: bold;
+  font-size:16px;
+  color: #3775D3;
+`;

@@ -1,23 +1,18 @@
 import { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+
 import Modal from '@material-ui/core/Modal';
-import { Container } from './styled'
-
-import {
-  MenuList,
-  MenuItem
-} from '@material-ui/core';
-
+import { makeStyles } from '@material-ui/core/styles';
+import { MenuList, MenuItem } from '@material-ui/core';
 
 import {
   ItemContainer,
   ProductImage,
   ProductPrice,
   ProductQuantity,
-  ModalButton
+  ModalButton,
+  Container
 } from './styled';
 
-// import { useStyles } from './styles';
 
 function rand() {
   return Math.round(Math.random() * 20) - 10;
@@ -37,11 +32,12 @@ function getModalStyle() {
 const useStyles = makeStyles((theme) => ({
   paper: {
     position: 'absolute',
-    width: 350,
+    width: 300,
     backgroundColor: 'white',
+    borderRadius: '5px',
     outline: 'none',
     boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
+    padding: theme.spacing(2, 3, 3),
   }
 }));
 
