@@ -6,6 +6,7 @@ export const useStyles = makeStyles((theme) => ({
   },
   media: {
     objectFit: 'cover',
+    cursor: "pointer",
   },
   actions: {
     display: 'flex',

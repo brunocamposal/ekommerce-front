@@ -39,6 +39,7 @@ export const useStyles = makeStyles((theme) => ({
   gridImage: {
     objectFit: 'cover',
     height: '100%',
+    cursor: "pointer",
   },
   title: {
     color: 'white',

@@ -31,7 +31,6 @@ const Cart = () => {
   const { createOrders } = useOrders();
   const { token } = useToken();
 
-
   const classes = useStyles();
 
   const handleCart = (e) => {
@@ -63,31 +62,40 @@ const Cart = () => {
             <Paper className={classes.cart}>
               <ClickAwayListener onClickAway={() => setAnchorCart(false)}>
                 <MenuList className={classes.menuCart}>
-                  {cart.map(({ id, image, name, price }) => (
-                    <MenuItem>
-                      <ProductImage src={image} />
-                      <p>
-                        {name}
-                        <br />
-                        <div className={classes.flex}>
-                          <ProductPrice> R$ {price} </ProductPrice>
-                          <ProductQuantity> 1 qnt. </ProductQuantity>
-                          <RemoveButton
-                            size="small"
-                            variant="contained"
-                            disableRipple
-                            color="secondary"
-                            onClick={() => deleteProduct(id)}
-                          >
-                            remover
-                          </RemoveButton>
-                        </div>
-                      </p>
-                    </MenuItem>
-                  ))}
+                  {cart.length === 0 ? (
+                    <h3 className={classes.emptyCart}> carrinho vazio </h3>
+                  ) : (
+                    cart.map(({ id, image, name, price }) => (
+                      <MenuItem>
+                        <ProductImage src={image} />
+                        <p>
+                          {name}
+                          <br />
+                          <div className={classes.flex}>
+                            <ProductPrice> R$ {price} </ProductPrice>
+                            <ProductQuantity> 1 qnt. </ProductQuantity>
+                            <RemoveButton
+                              size="small"
+                              variant="contained"
+                              disableRipple
+                              color="secondary"
+                              onClick={() => deleteProduct(id)}
+                            >
+                              remover
+                            </RemoveButton>
+                          </div>
+                        </p>
+                      </MenuItem>
+                    ))
+                  )}
                 </MenuList>
               </ClickAwayListener>
-              <FinishedButton variant="contained" size="large" onClick={()=> createOrders(token, cart)} color="primary">
+              <FinishedButton
+                variant="contained"
+                size="large"
+                onClick={() => createOrders(token, cart)}
+                color="primary"
+              >
                 Finalizar compra
               </FinishedButton>
             </Paper>

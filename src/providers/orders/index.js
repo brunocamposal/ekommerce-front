@@ -1,10 +1,12 @@
 import { createContext, useContext, useState } from 'react';
 import { axiosInstance } from '../../shared/utils/AxiosDefault';
+import Swal from 'sweetalert2';
 
 const OrdersContext = createContext();
 
 export const OrdersProvider = ({ children }) => {
   const [orders, setOrders] = useState([]);
+
 
   const getOrders = (token) => {
     axiosInstance
@@ -13,6 +15,10 @@ export const OrdersProvider = ({ children }) => {
   };
 
   const createOrders = (token, productData) => {
+    if (token.length === 0) {
+      Swal.fire('Você precisa estar logado para realizar o pedido');
+    }
+
     const repeat_prod_id = productData.map((prod) => prod.id);
 
     const data = {
@@ -23,7 +29,16 @@ export const OrdersProvider = ({ children }) => {
       .post('/api/orders/create_order/', data, {
         headers: { Authorization: `Token ${token}` },
       })
-      .then((response) => console.log(response))
+      .then((response) => {
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Pedido criado com sucesso',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        localStorage.removeItem('cart');
+      })
       .catch((error) => console.log(error));
   };
 

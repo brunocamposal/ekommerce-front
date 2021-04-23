@@ -7,7 +7,7 @@ export const AuthTokenProvider = ({ children }) => {
 
   const clearToken = () => {
     setToken("")
-    localStorage.clear()
+    localStorage.removeItem('token')
   }
 
   const getToken = () => {

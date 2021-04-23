@@ -26,7 +26,7 @@ const Navbar = () => {
 
   const history = useHistory();
 
-  const { token } = useToken();
+  const { token,clearToken } = useToken();
 
   const classes = useStyles();
   const theme = useTheme();
@@ -101,6 +101,15 @@ const Navbar = () => {
                     }}
                   >
                       Minhas compras
+                  </MenuItem>
+                  <MenuItem
+                    onClick={() => {
+                      setAnchorEl(!anchorEl);
+                      clearToken()
+                      window.location.reload();
+                    }}
+                  >
+                      Sair
                   </MenuItem>
                 </>
               ) : (

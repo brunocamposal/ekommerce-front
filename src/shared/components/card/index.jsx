@@ -24,13 +24,14 @@ const MaterialCard = ({ id, image, name, price, onClick }) => {
   };
 
   return (
-    <Card className={classes.card} onClick={onClick}>
+    <Card className={classes.card} >
       <CardMedia
         component="img"
         className={classes.media}
         height="170"
         image={image}
         title={name}
+        onClick={onClick}
       />
       <CardContent>
         <Typography gutterBottom variant="headline" component="h3">

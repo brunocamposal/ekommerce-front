@@ -61,4 +61,7 @@ export const useStyles = makeStyles((theme) => ({
     padding: 4,
     width: '300px',
   },
+  emptyCart: {
+    textAlign: "center",
+  }
 }));
