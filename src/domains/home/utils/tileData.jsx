@@ -1,4 +1,4 @@
-import { bebidas, doces, frutas, games, eletrodomesticos, limpeza } from '../../../assets/img';
+import { bebidas, doces, massas, queijos, paes, graos } from '../../../assets/img';
 
 export const tileData = [
   {
@@ -10,19 +10,19 @@ export const tileData = [
     title: 'Doces',
   },
   {
-    img: frutas,
+    img: graos,
     title: 'Grãos',
   },
   {
-    img: limpeza,
+    img: queijos,
     title: 'Queijos',
   },
   {
-    img: games,
+    img: paes,
     title: 'Paẽs',
   },
   {
-    img: eletrodomesticos,
+    img: massas,
     title: 'Massas',
   }
 ];

@@ -1,8 +1,8 @@
 import bebidas from './bebidas.jpeg';
 import doces from './doces.jpg';
-import frutas from './frutas.jpeg';
-import limpeza from './limpeza.jpeg';
-import eletrodomesticos from './eletrodomesticos.jpeg';
-import games from './games.jpeg';
+import graos from './graos.jpeg';
+import massas from './massas.jpeg';
+import paes from './paes.jpeg';
+import queijos from './queijos.jpeg';
 
-export { bebidas, doces, frutas, limpeza, eletrodomesticos, games };
+export { bebidas, doces, graos, massas, paes, queijos };

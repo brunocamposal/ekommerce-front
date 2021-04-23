@@ -27,7 +27,6 @@ const Navbar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   
   const history = useHistory();
-  const { getSearchedProducts } = useSearchedProducts();
   const { products } = useProducts();
   const { token, clearToken } = useToken();
 
@@ -42,10 +41,6 @@ const Navbar = () => {
   const handleSearchChange = ({ target: { value } }) => {
     console.log(value);
     console.log(products);
-    
-    getSearchedProducts(products.filter(({ product_data: { name } }) =>
-      name?.toLowerCase()?.includes(value?.toLowerCase())
-    ));
    
   };
 
