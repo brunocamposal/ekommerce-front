@@ -20,12 +20,15 @@ import Cart from './Cart';
 
 import { useStyles } from './styles';
 import { useToken } from '../../../providers/authToken';
+import { useProducts } from '../../../providers/products/';
+import { useSearchedProducts } from '../../../providers/searched-prodcuts/';
 
 const Navbar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
-
+  
   const history = useHistory();
-
+  const { getSearchedProducts } = useSearchedProducts();
+  const { products } = useProducts();
   const { token } = useToken();
 
   const classes = useStyles();
@@ -34,6 +37,16 @@ const Navbar = () => {
 
   const handleMenu = (e) => {
     setAnchorEl(e.currentTarget);
+  };
+
+  const handleSearchChange = ({ target: { value } }) => {
+    console.log(value);
+    console.log(products);
+    
+    getSearchedProducts(products.filter(({ product_data: { name } }) =>
+      name?.toLowerCase()?.includes(value?.toLowerCase())
+    ));
+   
   };
 
   return (
@@ -58,7 +71,11 @@ const Navbar = () => {
           <>
             <div className={classes.searchField}>
               <Paper component="form" className={classes.root}>
-                <InputBase className={classes.input} placeholder="Search" />
+                <InputBase
+                  className={classes.input}
+                  placeholder="Search"
+                  onChange={handleSearchChange}
+                />
                 <IconButton
                   type="submit"
                   className={classes.iconButton}
@@ -100,7 +117,7 @@ const Navbar = () => {
                       setAnchorEl(!anchorEl);
                     }}
                   >
-                      Minhas compras
+                    Minhas compras
                   </MenuItem>
                 </>
               ) : (
