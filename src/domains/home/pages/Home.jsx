@@ -22,6 +22,8 @@ export const HomePage = () => {
     setOpen(true);
   };
 
+
+
   return (
     <>
       <div>
@@ -53,7 +55,9 @@ export const HomePage = () => {
                     />
                   </Grid>
                 ))
-              )}
+              )
+              
+              }
             </Grid>
           </div>
           <ProductModal

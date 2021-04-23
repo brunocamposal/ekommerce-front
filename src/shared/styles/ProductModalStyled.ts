@@ -7,6 +7,7 @@ export const ProductModalStyled = styled.div`
   border-radius: 5px;
   display: flex;
   flex-direction: column;
+  outline-style: none;
 
   align-items: center;
 
@@ -24,7 +25,7 @@ export const ProductModalStyled = styled.div`
   }
 
   .product-modal-image {
-    width: 85%;
+    height: 40%;
     border-radius: 5px;
     margin: 20px;
   }
