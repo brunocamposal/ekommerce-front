@@ -12,7 +12,7 @@ import { ProductPrice } from './styled';
 import { useStyles } from './styles';
 import { useCart } from '../../../providers/cart';
 
-const MaterialCard = ({ id, image, name, price }) => {
+const MaterialCard = ({ id, image, name, price, onClick }) => {
   const classes = useStyles();
   const { setCart, cart } = useCart();
 
@@ -24,7 +24,7 @@ const MaterialCard = ({ id, image, name, price }) => {
   };
 
   return (
-    <Card className={classes.card}>
+    <Card className={classes.card} onClick={onClick}>
       <CardMedia
         component="img"
         className={classes.media}

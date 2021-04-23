@@ -19,11 +19,14 @@ import DrawerComponent from './Drawer';
 import Cart from './Cart';
 
 import { useStyles } from './styles';
+import { useToken } from '../../../providers/authToken';
 
 const Navbar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
 
   const history = useHistory();
+
+  const { token } = useToken();
 
   const classes = useStyles();
   const theme = useTheme();
@@ -89,22 +92,37 @@ const Navbar = () => {
               open={anchorEl}
               onClose={() => setAnchorEl(!anchorEl)}
             >
-              <MenuItem
-                onClick={() => {
-                  history.push('/login');
-                  setAnchorEl(!anchorEl);
-                }}
-              >
-                Fazer Login
-              </MenuItem>
-              <MenuItem
-                onClick={() => {
-                  history.push('/register');
-                  setAnchorEl(!anchorEl);
-                }}
-              >
-                Registrar-se
-              </MenuItem>
+              {token.length !== 0 ? (
+                <>
+                  <MenuItem
+                    onClick={() => {
+                      history.push('/my-orders');
+                      setAnchorEl(!anchorEl);
+                    }}
+                  >
+                      Minhas compras
+                  </MenuItem>
+                </>
+              ) : (
+                <>
+                  <MenuItem
+                    onClick={() => {
+                      history.push('/login');
+                      setAnchorEl(!anchorEl);
+                    }}
+                  >
+                    Fazer Login
+                  </MenuItem>
+                  <MenuItem
+                    onClick={() => {
+                      history.push('/register');
+                      setAnchorEl(!anchorEl);
+                    }}
+                  >
+                    Registrar-se
+                  </MenuItem>
+                </>
+              )}
             </Menu>
             <Cart />
           </>

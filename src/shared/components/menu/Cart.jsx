@@ -1,5 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useCart } from '../../../providers/cart';
+import { useOrders } from '../../../providers/orders';
+import { useToken } from '../../../providers/authToken';
 
 import {
   MenuItem,
@@ -26,6 +28,10 @@ import { useStyles } from './styles';
 const Cart = () => {
   const [anchorCart, setAnchorCart] = useState(null);
   const { cart, deleteProduct } = useCart();
+  const { createOrders } = useOrders();
+  const { token } = useToken();
+
+
   const classes = useStyles();
 
   const handleCart = (e) => {
@@ -81,7 +87,7 @@ const Cart = () => {
                   ))}
                 </MenuList>
               </ClickAwayListener>
-              <FinishedButton variant="contained" size="large" color="primary">
+              <FinishedButton variant="contained" size="large" onClick={()=> createOrders(token, cart)} color="primary">
                 Finalizar compra
               </FinishedButton>
             </Paper>
